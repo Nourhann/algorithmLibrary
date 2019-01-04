@@ -6,6 +6,9 @@
 package myalgorithmlib;
 
 import java.util.ArrayList;
+import linkedList.Data;
+import linkedList.singleLinkedList;
+import linkedList.singleNode;
 import searchPackage.searchAlgorithms;
 import sortPackage.sortAlgorithms;
 
@@ -19,16 +22,20 @@ public class MyAlgorithmLib {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        ArrayList<Integer> list = new ArrayList<Integer>();
-        list.add(5);
-        list.add(20);
-        list.add(3);
-        list.add(8);
-        list.add(2);
-        list.add(1);
-        list = sortAlgorithms.selectionSort(list);
-        System.out.println(list);
+      singleLinkedList LinkedList = new singleLinkedList() ;
+      singleNode node = new singleNode(new Data(1),null);
+      singleNode node2 = new singleNode(new Data(2),null);
+      singleNode node3 = new singleNode(new Data(3),null);
+      LinkedList.setRoot(node);
+      //System.out.println(LinkedList.getRoot().getData().getIndex());
+      LinkedList.insertFirst(node2);
+      LinkedList.insertLast(node3);
+      //LinkedList.delete(node3);
+      LinkedList.deleteLast();
+      LinkedList.display();
+      
+      
+      
     }
     
 }
