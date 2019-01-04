@@ -8,7 +8,10 @@ package myalgorithmlib;
 import java.util.ArrayList;
 import linkedList.Data;
 import linkedList.singleLinkedList;
-import linkedList.singleNode;
+import linkedList.Node;
+import linkedList.doubleLinkedList;
+import linkedList.doubleNode;
+import linkedList.linkedList;
 import searchPackage.searchAlgorithms;
 import sortPackage.sortAlgorithms;
 
@@ -22,16 +25,16 @@ public class MyAlgorithmLib {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-      singleLinkedList LinkedList = new singleLinkedList() ;
-      singleNode node = new singleNode(new Data(1),null);
-      singleNode node2 = new singleNode(new Data(2),null);
-      singleNode node3 = new singleNode(new Data(3),null);
+      linkedList LinkedList = new doubleLinkedList() ;
+      Node node = new doubleNode(null,new Data(1),null);
+      Node node2 = new doubleNode(null,new Data(2),null);
+      Node node3 = new doubleNode(null,new Data(3),null);
       LinkedList.setRoot(node);
       //System.out.println(LinkedList.getRoot().getData().getIndex());
       LinkedList.insertFirst(node2);
       LinkedList.insertLast(node3);
-      //LinkedList.delete(node3);
-      LinkedList.deleteLast();
+      LinkedList.delete(node3);
+      //LinkedList.deleteLast();
       LinkedList.display();
       
       

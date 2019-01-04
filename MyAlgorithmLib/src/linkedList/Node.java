@@ -9,15 +9,15 @@ package linkedList;
  *
  * @author norhan
  */
-public class singleNode {
+public class Node {
     Data data;
-    singleNode next;
-
-    public singleNode() {
+    Node next;
+    
+    public Node() {
         next = null;
     }
 
-    public singleNode(Data data, singleNode next) {
+    public Node(Data data, Node next) {
         this.data = data;
         this.next = next;
     }
@@ -26,7 +26,7 @@ public class singleNode {
         this.data = data;
     }
 
-    public void setNext(singleNode next) {
+    public void setNext(Node next) {
         this.next = next;
     }
 
@@ -34,7 +34,7 @@ public class singleNode {
         return data;
     }
 
-    public singleNode getNext() {
+    public Node getNext() {
         return next;
     }
     

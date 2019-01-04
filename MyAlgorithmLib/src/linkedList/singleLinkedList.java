@@ -11,41 +11,39 @@ import java.util.LinkedList;
  *
  * @author norhan
  */
-public class singleLinkedList {
-    private singleNode root;
+public class singleLinkedList implements linkedList  {
+    private Node root;
     private int sizeOfLinkedList;
-    LinkedList l;
-    
+
     public singleLinkedList() {
-        root =null;
-        sizeOfLinkedList=0;
     }
 
-    public singleLinkedList(singleNode root, int sizeOfLinkedList) {
+    public singleLinkedList(Node root, int sizeOfLinkedList) {
         this.root = root;
         this.sizeOfLinkedList = sizeOfLinkedList;
     }
 
-    public void setRoot(singleNode root) {
+    public void setRoot(Node root) {
         this.root = root;
-        sizeOfLinkedList++;
     }
 
-    public singleNode getRoot() {
+    public Node getRoot() {
         return root;
     }
 
     public int getSizeOfLinkedList() {
         return sizeOfLinkedList;
     }
-    
-    public void insertFirst(singleNode node){
+
+   
+   
+    public void insertFirst(Node node){
         node.setNext(root);
         root = node;
         sizeOfLinkedList++;
     }
-    public void insertLast(singleNode node ){
-       singleNode temp=root;
+    public void insertLast(Node node ){
+       Node temp=root;
        while(temp.getNext()!= null){
            temp = temp.getNext();
        }
@@ -58,17 +56,9 @@ public class singleLinkedList {
         sizeOfLinkedList--;
     }
     
-    public void deleteLast(){
-       singleNode temp=root;
-       while(temp.getNext().getNext()!=null){
-           temp=temp.getNext();
-       }
-       temp.setNext(null);
-       sizeOfLinkedList--;
-    }
-    public void delete(singleNode node){
-       singleNode temp=root;
-       singleNode previous=root;
+    public void delete(Node node){
+       Node temp=root;
+       Node previous=root;
        
        if(root.getData()==node.getData())
            deleteFirst();
@@ -85,8 +75,20 @@ public class singleLinkedList {
        }
        sizeOfLinkedList--;
     }
-    public void display(){
-       singleNode temp=root;
+
+    
+    public void deleteLast() {
+       Node temp=root;
+       while(temp.getNext().getNext()!=null){
+           temp=temp.getNext();
+       }
+       temp.setNext(null);
+       sizeOfLinkedList--;
+    }
+
+
+    public void display() {
+       Node temp=root;
        while(temp!=null){
            System.out.println(temp.getData().getIndex());
            temp=temp.getNext();
