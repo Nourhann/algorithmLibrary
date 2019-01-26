@@ -5,8 +5,12 @@
  */
 package myalgorithmlib;
 
+import BinaryTree.binarySearchTree;
+import BinaryTree.binaryTree;
+import BinaryTree.treeNode;
+import BinaryTree.Data;
 import java.util.ArrayList;
-import linkedList.Data;
+//import linkedList.Data;
 import linkedList.singleLinkedList;
 import linkedList.Node;
 import linkedList.doubleLinkedList;
@@ -25,18 +29,11 @@ public class MyAlgorithmLib {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-      linkedList LinkedList = new doubleLinkedList() ;
-      Node node = new doubleNode(null,new Data(1),null);
-      Node node2 = new doubleNode(null,new Data(2),null);
-      Node node3 = new doubleNode(null,new Data(3),null);
-      LinkedList.setRoot(node);
-      //System.out.println(LinkedList.getRoot().getData().getIndex());
-      LinkedList.insertFirst(node2);
-      LinkedList.insertLast(node3);
-      LinkedList.delete(node3);
-      //LinkedList.deleteLast();
-      LinkedList.display();
-      
+        ArrayList<Integer> arr1 = new ArrayList<Integer>();
+        ArrayList<Integer> arr2 = new ArrayList<Integer>();
+        arr1.add(1);
+        arr2.add(4);
+        System.out.println(sortAlgorithms.merge(arr1,arr2));
       
       
     }
