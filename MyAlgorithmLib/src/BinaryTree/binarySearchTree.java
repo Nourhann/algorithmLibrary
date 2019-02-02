@@ -48,10 +48,51 @@ public class binarySearchTree implements binaryTree{
         }
         return root;
     }
-
+    public treeNode findParentOfNode(treeNode root ,treeNode node){
+        treeNode parent = null;
+        while (root != null && root != node)  
+        {  
+        parent = root;  
+  
+        if (node.getData().getIndex()< root.getData().getIndex())  
+            root = root.getLeft();  
+        else  
+            root = root.getRight();  
+        }
+        return parent;
+    }
+    public treeNode findMinNode(treeNode root){
+        while(root.getLeft() != null) {  
+        root = root.getLeft();  
+        }  
+        return root;  
+    }
     @Override
-    public void delete(treeNode node) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void delete(treeNode cur , treeNode parent) {
+        if(cur.getLeft()== null && cur.getRight() == null){
+           if(parent.getLeft()== cur){
+               parent.setLeft(null);
+           }
+           else {
+               parent.setRight(null);
+           }
+         }
+        else if(cur.getLeft()!= null && cur.getRight() != null){
+               treeNode succ  = findMinNode(root);  
+               Data data = succ.getData();
+               cur.setData(data); 
+               delete(succ, findParentOfNode(root,succ));       
+        }
+        else {
+            treeNode child = (cur.getLeft()!= null)? cur.getLeft(): cur.getRight();  
+            if(parent.getLeft()==cur){
+                parent.setLeft(child);
+            }
+            else {
+                parent.setRight(child);
+            }
+            
+        }
     }
 
     @Override

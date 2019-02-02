@@ -6,6 +6,7 @@
 package sortPackage;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -46,30 +47,63 @@ public class sortAlgorithms {
         
         return list;
     }
-    public static ArrayList<Integer> merge(ArrayList<Integer> arr1 , ArrayList<Integer> arr2){
-        ArrayList <Integer> result = new ArrayList<Integer>();
-        //int size = arr1.size() > arr2.size() ? arr1.size() : arr2.size();
-        int indexForArr1 =0 , indexForArr2=0;
-        while(!arr1.isEmpty()&&!arr2.isEmpty()){
-            if(arr1.get(indexForArr1) < arr2.get(indexForArr2)){
-                result.add(arr1.get(indexForArr1));
-                arr1.remove(indexForArr1);
-                //indexForArr1++;
-            }
-            else {
-                result.add(arr2.get(indexForArr2));
-                arr2.remove(indexForArr2);
-                //sindexForArr2++;
+    public static int findMaxNumInArr(ArrayList<Integer> arr){
+        int max =Integer.MIN_VALUE;
+        for(int i = 0 ; i<arr.size();i++){
+            if(arr.get(i)>max){
+                max=arr.get(i);
             }
         }
-        if(!arr1.isEmpty()){
-            result.addAll(arr1);
+        return max;
+    }
+    // do not use it if the max number is big as it will be an efficient 
+    public static ArrayList<Integer> countSort(ArrayList<Integer> arr){
+        int tempArr[] , tempCount;
+        ArrayList<Integer> sortedArr = new ArrayList<Integer>();
+        int max = findMaxNumInArr(arr);
+        tempArr = new int [max+1];
+        for(int i=0;i<arr.size();i++){
+            tempArr[arr.get(i)]++;
         }
-        if(!arr2.isEmpty()){
-            result.addAll(arr2);
+        for(int i=0;i<tempArr.length;i++){
+            tempCount = tempArr[i];
+            while(tempCount>0){
+                sortedArr.add(i);
+                tempCount--;
+            }
+            
         }
-        return result;
+        return sortedArr; 
+        
     }
     
-    //public ArrayList
+    
+    
+    
+//    public static List<Integer> merge(List<Integer> arr1 , List<Integer> arr2){
+//        List <Integer> result = new ArrayList<Integer>();
+//        //int size = arr1.size() > arr2.size() ? arr1.size() : arr2.size();
+//        int indexForArr1 =0 , indexForArr2=0;
+//        while(!arr1.isEmpty()&&!arr2.isEmpty()){
+//            if(arr1.get(indexForArr1) < arr2.get(indexForArr2)){
+//                result.add(arr1.get(indexForArr1));
+//                arr1.remove(indexForArr1);
+//                //indexForArr1++;
+//            }
+//            else {
+//                result.add(arr2.get(indexForArr2));
+//                arr2.remove(indexForArr2);
+//                //sindexForArr2++;
+//            }
+//        }
+//        if(!arr1.isEmpty()){
+//            result.addAll(arr1);
+//        }
+//        if(!arr2.isEmpty()){
+//            result.addAll(arr2);
+//        }
+//        return result;
+//    }
+// 
+    
 }

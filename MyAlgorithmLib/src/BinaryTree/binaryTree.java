@@ -15,6 +15,6 @@ public interface binaryTree {
     public treeNode getRoot();
     public treeNode insert(treeNode node , Data data);
     public boolean search (treeNode node , Data data);
-    public void delete(treeNode node);
+    public void delete(treeNode cur , treeNode parent);
     public void display(treeNode root);
 }
